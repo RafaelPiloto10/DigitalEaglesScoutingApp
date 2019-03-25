@@ -25,6 +25,8 @@ function draw() {
     field.cargo_ship.display();
     field.rocketF.display();
     field.rocketN.display();
+    totalPoints = habStartPoints + habEndPoints + hatchPoints + cargoPoints;
+    document.getElementById("point-counter").innerHTML = totalPoints;
 
 }
 

@@ -42,34 +42,66 @@ class CargoShip {
     }
 
     toggle(location, piece) {
+        let bool;
         switch (location) {
             case "front-F":
                 this.ship[0][piece] = !this.ship[0][piece];
+                bool = this.ship[0][piece];
                 break;
             case "front-N":
                 this.ship[1][piece] = !this.ship[1][piece];
+                bool = this.ship[1][piece];
                 break;
             case "F1":
                 this.ship[2][piece] = !this.ship[2][piece];
+                bool = this.ship[2][piece];
                 break;
             case "N1":
                 this.ship[3][piece] = !this.ship[3][piece];
+                bool = this.ship[3][piece];
                 break;
             case "F2":
                 this.ship[4][piece] = !this.ship[4][piece];
+                bool = this.ship[4][piece];
                 break;
             case "N2":
                 this.ship[5][piece] = !this.ship[5][piece];
+                bool = this.ship[5][piece];
                 break;
             case "F3":
                 this.ship[6][piece] = !this.ship[6][piece];
+                bool = this.ship[6][piece];
                 break;
             case "N3":
                 this.ship[7][piece] = !this.ship[7][piece];
+                bool = this.ship[7][piece];
                 break;
         }
+        if (bool && piece == 1) {
+            hatchPoints += 2;
+        } else if (!bool && piece == 1) {
+            hatchPoints -= 2;
+        } else if (bool && piece == 0) {
+            cargoPoints += 3;
+        } else if (!bool && piece == 0) {
+            cargoPoints -= 3;
+        }
+        let double = false;
+        for (let i = 0; i < matchLogs; i++) {
+            if (matchLogs[i]["Location"] == ("CARGO-SHIP-" + location) && matchLogs[i]["Game-Piece"] == (piece == 1 ? "Hatch" : "Cargo")) {
+                matchLogs.splice(i, 1);
+                double = true;
+            }
+        }
+        if (!double) {
+            matchLogs.push({
+                "Time": document.getElementById("match-time").innerHTML,
+                "During-Sandstorm": document.getElementById("match-time").innerHTML >= 120,
+                "Game-Piece": (piece == 1 ? "Hatch" : "Cargo"),
+                "Location": "CARGO-SHIP-" + location
+            });
+        }
 
-        console.log(this.ship);
     }
 
     display() {
@@ -119,10 +151,29 @@ class Rocket {
     }
     toggle(location, piece) {
         if ((piece == 0 || piece == 3) && document.getElementById("gamepieceB").innerHTML == "Hatch") {
-            this.rocket[location - 1][piece] = !this.rocket[location - 1][piece]
+            this.rocket[location - 1][piece] = !this.rocket[location - 1][piece];
+            if (this.rocket[location - 1][piece]) {
+                hatchPoints += 2;
+            } else {
+                hatchPoints -= 2;
+            }
+
         } else if ((piece == 1 || piece == 2) && document.getElementById("gamepieceB").innerHTML == "Cargo") {
-            this.rocket[location - 1][piece] = !this.rocket[location - 1][piece]
+            this.rocket[location - 1][piece] = !this.rocket[location - 1][piece];
+            if (this.rocket[location - 1][piece]) {
+                cargoPoints += 3;
+            } else {
+                cargoPoints -= 3;
+            }
         }
+
+        matchLogs.push({
+            "Time": document.getElementById("match-time").innerHTML = document.getElementById("match-time").innerHTML,
+            "During-Sandstorm": document.getElementById("match-time").innerHTML = document.getElementById("match-time").innerHTML >= 120,
+            "Game-Piece": (piece == 0 || piece == 1 ? "Hatch" : "Cargo"),
+            "Location": "ROCKET-SHIP-" + location
+        });
+
     }
 
     display() {
