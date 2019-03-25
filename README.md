@@ -7,3 +7,9 @@
   * Open http://localhost:3000
 * Online
   * Visit https://digital-eagles-scout-now.sh
+
+ * Scouting Data
+   * The scouting data is stored in the *root* folder locally called `teams`. Each team has their own folder and each match is differentiated by match number such as `Q1` or `Final_2`
+
+   * Visualize the data
+      * coming soon
