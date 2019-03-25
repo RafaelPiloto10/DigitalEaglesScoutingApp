@@ -13,17 +13,23 @@
 <body>
     <div class="presets">
         <div>
-            <div class="input-group" style="float: left; width:30%;">
+            <div class="input-group" style="float: left; width:20%;">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Scouter Name</span>
                 </div>
                 <input id="scouter-name" type="text" aria-label="Scouter-Name" class="form-control">
             </div>
-            <div class="input-group" style="float: left; width:30%; padding-left: 10px;">
+            <div class="input-group" style="float: left; width:15%; padding-left: 10px;">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Team Number</span>
                 </div>
                 <input id="team-number" type="text" aria-label="Team Number" class="form-control">
+            </div>
+            <div class="input-group" style="float: left; width:10%; padding-left: 10px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Match #</span>
+                </div>
+                <input id="match-number" type="text" aria-label="Match-Number" class="form-control">
             </div>
             <div style="float: left; width:30%; padding-left: 10px;">
                 <button id="submitB" type="button" class="btn btn-dark">Submit</button>
@@ -37,12 +43,13 @@
                         <span class="input-group-text">Hab Start</span>
                     </div>
                     <select class="custom-select" id="habStart">
-                        <option value="2">Level 1 L</option>
-                        <option value="3">Level 1 M</option>
-                        <option value="4">Level 1 R</option>
-                        <option value="5">Level 2 L</option>
-                        <option value="6">Level 2 R</option>
-                        <option selected>Not Present</option>
+                        <option value="1">Level 1 L</option>
+                        <option value="2">Level 1 M</option>
+                        <option value="3">Level 1 R</option>
+                        <option value="4">Level 2 L</option>
+                        <option value="5">Level 2 R</option>
+                        <option value="6">Not Present</option>
+                        <option selected>Not indicated</option>
 
                     </select>
                 </div>
@@ -51,34 +58,39 @@
                         <span class="input-group-text">Hab End</span>
                     </div>
                     <select class="custom-select" id="habEnd">
-                        <option value="2">Level 1</option>
-                        <option value="3">Level 2</option>
-                        <option value="4">Level 3</option>
-                        <option selected>None</option>
+                        <option value="1">Level 1</option>
+                        <option value="2">Level 2</option>
+                        <option value="3">Level 3</option>
+                        <option value="4">None</option>
+                        <option selected>Not indicated</option>
+
                     </select>
                 </div>
                 <div class="input-group" style="float: left; width:15%;padding-left: 5px;">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Strat</span>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect02">
-                        <option selected>Unknown</option>
+                    <select class="custom-select" id="stratSelect">
+                        <option value="1">Unknown</option>
                         <option value="2">Rocket</option>
                         <option value="3">Cargo Ship</option>
                         <option value="4">Random Cycle</option>
                         <option value="5">Defense</option>
                         <option value="5">Disabled</option>
                         <option value="6">Broke</option>
+                        <option selected>Not indicated</option>
                     </select>
                 </div>
                 <div class="input-group" style="float: left; width:15%;padding-left: 5px;">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Intake</span>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect02">
-                        <option selected>Hatch only</option>
+                    <select class="custom-select" id="intakeSelect">
+                        <option value="1">Hatch only</option>
                         <option value="2">Cargo only</option>
                         <option value="3">Both</option>
+                        <option value="4">Unknown</option>
+                        <option selected>Not indicated</option>
                     </select>
                 </div>
                 <div style="float:left; padding-left: 10px;padding-top: 5px;">
@@ -87,9 +99,10 @@
                 <div style="float:left; padding-left: 10px;">
                     <p id="match-time" style="font-weight: bold; font-size: 2rem;">135</p>
                 </div>
+                <div style="clear: both; float: left; display: block; position: relative;"></div>
 
-                <div style="float:left; padding-left: 30px; font-weight: bold; padding-top: 5px;">
-                    <button id="gamepieceB" type="button" class="btn btn-dark">Hatch</button>
+                <div style="float:left; padding-left: 10px; font-weight: bold; color: white">
+                    <button id="gamepieceB" type="button" class="btn btn-dark">HATCH</button>
                 </div>
 
             </div>

@@ -1,6 +1,6 @@
 let img;
 let canvasholder;
-let field;
+var field;
 
 function setup() {
     let canvas = createCanvas(1300, 800);
@@ -15,7 +15,7 @@ function setup() {
 function draw() {
     background(33);
     image(img, 0, 0, img.width + (img.width * .3), img.height + (img.height * .3));
-    if (document.getElementById("gamepieceB").innerHTML == "Hatch") {
+    if (document.getElementById("gamepieceB").innerHTML == "HATCH") {
         fill(232, 221, 25);
     } else {
         fill(244, 154, 9);
@@ -33,7 +33,7 @@ function draw() {
 function mouseClicked() {
     console.log(mouseX, mouseY);
     if (mouseY > 0) {
-        let p = (document.getElementById("gamepieceB").innerHTML == "Hatch") ? 1 : 0;
+        let p = (document.getElementById("gamepieceB").innerHTML == "HATCH") ? 1 : 0;
         if (mouseX >= 100 && mouseX <= 285) {
             // Front cargo ship
             if (mouseY >= 190 && mouseY <= 395) {
@@ -78,88 +78,88 @@ function mouseClicked() {
             // Rocket hatch
             if (mouseY >= 60 && mouseY <= 140) {
                 console.log("Rocket F 3 HATCH");
-                field.rocketF.toggle(3, 0);
+                field.rocketF.toggle(3, 0, "FL");
             } else if (mouseY >= 160 && mouseY <= 220) {
                 console.log("Rocket F 2 HATCH");
-                field.rocketF.toggle(2, 0);
+                field.rocketF.toggle(2, 0, "FL");
             } else if (mouseY >= 240 && mouseY <= 305) {
                 console.log("Rocket F 1 HATCH");
-                field.rocketF.toggle(1, 0);
+                field.rocketF.toggle(1, 0, "FL");
             } else if (mouseY >= 395 && mouseY <= 470) {
                 console.log("Rocket N 3 HATCH");
-                field.rocketN.toggle(3, 0);
+                field.rocketN.toggle(3, 0, "NL");
             } else if (mouseY >= 485 && mouseY <= 555) {
                 console.log("Rocket N 2 HATCH");
-                field.rocketN.toggle(2, 0);
+                field.rocketN.toggle(2, 0, "NL");
             } else if (mouseY >= 570 && mouseY <= 635) {
                 console.log("Rocket N 1 HATCH");
-                field.rocketN.toggle(1, 0);
+                field.rocketN.toggle(1, 0, "NL");
             }
 
         } else if (mouseX > 935 && mouseX <= 960) {
             // Rocket cargo left
             if (mouseY >= 45 && mouseY <= 105) {
                 console.log("Rocket F 3 CARGO")
-                field.rocketF.toggle(3, 1);
+                field.rocketF.toggle(3, 1, "FL");
             } else if (mouseY >= 150 && mouseY <= 200) {
                 console.log("Rocket F 2 CARGO");
-                field.rocketF.toggle(2, 1);
+                field.rocketF.toggle(2, 1, "FL");
             } else if (mouseY >= 240 && mouseY <= 290) {
                 console.log("Rocket F 1 CARGO");
-                field.rocketF.toggle(1, 1);
+                field.rocketF.toggle(1, 1, "FL");
             } else if (mouseY >= 370 && mouseY <= 430) {
                 console.log("Rocket N 3 CARGO");
-                field.rocketN.toggle(3, 1);
+                field.rocketN.toggle(3, 1, "NL");
             } else if (mouseY >= 475 && mouseY <= 530) {
                 console.log("Rocket N 2 CARGO");
-                field.rocketN.toggle(2, 1);
+                field.rocketN.toggle(2, 1, "NL");
             } else if (mouseY >= 565 && mouseY <= 615) {
                 console.log("Rocket N 1 CARGO");
-                field.rocketN.toggle(1, 1);
+                field.rocketN.toggle(1, 1, "NL");
             }
 
         } else if (mouseX > 960 && mouseX <= 1000) {
             // Rocket cargo right
             if (mouseY >= 45 && mouseY <= 105) {
-                console.log("Rocket F 3 CARGO")
-                field.rocketF.toggle(3, 2);
+                console.log("Rocket F 3 CARGO", "FR")
+                field.rocketF.toggle(3, 2, "FL");
             } else if (mouseY >= 150 && mouseY <= 200) {
                 console.log("Rocket F 2 CARGO");
-                field.rocketF.toggle(2, 2);
+                field.rocketF.toggle(2, 2, "FL");
             } else if (mouseY >= 240 && mouseY <= 290) {
                 console.log("Rocket F 1 CARGO");
-                field.rocketF.toggle(1, 2);
+                field.rocketF.toggle(1, 2, "FL");
             } else if (mouseY >= 370 && mouseY <= 430) {
                 console.log("Rocket N 3 CARGO");
-                field.rocketN.toggle(3, 2);
+                field.rocketN.toggle(3, 2, "NL");
             } else if (mouseY >= 475 && mouseY <= 530) {
                 console.log("Rocket N 2 CARGO");
-                field.rocketN.toggle(2, 2);
+                field.rocketN.toggle(2, 2, "NL");
             } else if (mouseY >= 565 && mouseY <= 615) {
                 console.log("Rocket N 1 CARGO");
-                field.rocketN.toggle(1, 2);
+                field.rocketN.toggle(1, 2, "NL");
             }
 
         } else if (mouseX > 1000 && mouseX <= 1030) {
             // Rocket hatch
             if (mouseY >= 60 && mouseY <= 140) {
                 console.log("Rocket F 3 HATCH");
-                field.rocketF.toggle(3, 3);
+                field.rocketF.toggle(3, 3, "FR");
             } else if (mouseY >= 160 && mouseY <= 220) {
                 console.log("Rocket F 2 HATCH");
-                field.rocketF.toggle(2, 3);
+                field.rocketF.toggle(2, 3, "FR");
             } else if (mouseY >= 240 && mouseY <= 305) {
                 console.log("Rocket F 1 HATCH");
-                field.rocketF.toggle(1, 3);
+                field.rocketF.toggle(1, 3, "FR");
             } else if (mouseY >= 395 && mouseY <= 470) {
                 console.log("Rocket N 3 HATCH");
-                field.rocketN.toggle(3, 3);
+                field.rocketN.toggle(3, 3, "NR");
             } else if (mouseY >= 485 && mouseY <= 555) {
                 console.log("Rocket N 2 HATCH");
-                field.rocketN.toggle(2, 3);
+                field.rocketN.toggle(2, 3, "NR");
             } else if (mouseY >= 570 && mouseY <= 635) {
                 console.log("Rocket N 1 HATCH");
-                field.rocketN.toggle(1, 3);
+                field.rocketN.toggle(1, 3, "NR");
             }
         }
     }

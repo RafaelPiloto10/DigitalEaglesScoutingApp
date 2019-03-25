@@ -28,7 +28,7 @@ class CargoShip {
             [false, false],
             [false, false],
             [false, false]
-        ]
+        ];
         this.shipPoints = [
             [createVector(100 + 70 + 64, 190 + 70), createVector(100 + 70, 190 + 70)],
             [createVector(100 + 70 + 64, 395 + 50), createVector(100 + 70, 395 + 50)],
@@ -77,7 +77,9 @@ class CargoShip {
                 bool = this.ship[7][piece];
                 break;
         }
-        if (bool && piece == 1) {
+        if (piece == 1 && document.getElementById("match-time").innerHTML == 135) {
+
+        } else if (bool && piece == 1) {
             hatchPoints += 2;
         } else if (!bool && piece == 1) {
             hatchPoints -= 2;
@@ -87,15 +89,22 @@ class CargoShip {
             cargoPoints -= 3;
         }
         let double = false;
-        for (let i = 0; i < matchLogs; i++) {
+        for (let i = 0; i < matchLogs.length; i++) {
             if (matchLogs[i]["Location"] == ("CARGO-SHIP-" + location) && matchLogs[i]["Game-Piece"] == (piece == 1 ? "Hatch" : "Cargo")) {
-                matchLogs.splice(i, 1);
+                matchLogs.push({
+                    "Time": document.getElementById("match-time").innerHTML,
+                    "Is-Preloaded": document.getElementById("match-time").innerHTML == 135,
+                    "During-Sandstorm": document.getElementById("match-time").innerHTML >= 120,
+                    "Game-Piece": (piece == 1 ? "Unscored-Hatch" : "Unscored-Cargo"),
+                    "Location": "CARGO-SHIP-" + location
+                });
                 double = true;
             }
         }
         if (!double) {
             matchLogs.push({
                 "Time": document.getElementById("match-time").innerHTML,
+                "Is-Preloaded": document.getElementById("match-time").innerHTML == 135,
                 "During-Sandstorm": document.getElementById("match-time").innerHTML >= 120,
                 "Game-Piece": (piece == 1 ? "Hatch" : "Cargo"),
                 "Location": "CARGO-SHIP-" + location
@@ -118,6 +127,19 @@ class CargoShip {
                 }
             }
         }
+    }
+
+    reset() {
+        this.ship = [
+            [false, false],
+            [false, false],
+            [false, false],
+            [false, false],
+            [false, false],
+            [false, false],
+            [false, false],
+            [false, false]
+        ]
     }
 }
 
@@ -149,8 +171,8 @@ class Rocket {
 
         this.isNear = isNear;
     }
-    toggle(location, piece) {
-        if ((piece == 0 || piece == 3) && document.getElementById("gamepieceB").innerHTML == "Hatch") {
+    toggle(location, piece, side) {
+        if ((piece == 0 || piece == 3) && document.getElementById("gamepieceB").innerHTML == "HATCH") {
             this.rocket[location - 1][piece] = !this.rocket[location - 1][piece];
             if (this.rocket[location - 1][piece]) {
                 hatchPoints += 2;
@@ -158,7 +180,7 @@ class Rocket {
                 hatchPoints -= 2;
             }
 
-        } else if ((piece == 1 || piece == 2) && document.getElementById("gamepieceB").innerHTML == "Cargo") {
+        } else if ((piece == 1 || piece == 2) && document.getElementById("gamepieceB").innerHTML == "CARGO") {
             this.rocket[location - 1][piece] = !this.rocket[location - 1][piece];
             if (this.rocket[location - 1][piece]) {
                 cargoPoints += 3;
@@ -166,13 +188,27 @@ class Rocket {
                 cargoPoints -= 3;
             }
         }
+        let double = false;
+        for (let i = 0; i < matchLogs.length; i++) {
+            if (matchLogs[i]["Location"] == ("ROCKET-SHIP-" + location + "-" + side) && matchLogs[i]["Game-Piece"] == (piece == 1 ? "Hatch" : "Cargo")) {
+                matchLogs.push({
+                    "Time": document.getElementById("match-time").innerHTML,
+                    "During-Sandstorm": document.getElementById("match-time").innerHTML >= 120,
+                    "Game-Piece": (piece == 1 ? "Unscored-Hatch" : "Unscored-Cargo"),
+                    "Location": "ROCKET-SHIP-" + location + "-" + side
+                });
+                double = true;
+            }
+        }
+        if (!double) {
+            matchLogs.push({
+                "Time": document.getElementById("match-time").innerHTML = document.getElementById("match-time").innerHTML,
+                "During-Sandstorm": document.getElementById("match-time").innerHTML >= 120,
+                "Game-Piece": (piece == 0 || piece == 1 ? "Hatch" : "Cargo"),
+                "Location": "ROCKET-SHIP-" + location + "-" + side
+            });
+        }
 
-        matchLogs.push({
-            "Time": document.getElementById("match-time").innerHTML = document.getElementById("match-time").innerHTML,
-            "During-Sandstorm": document.getElementById("match-time").innerHTML = document.getElementById("match-time").innerHTML >= 120,
-            "Game-Piece": (piece == 0 || piece == 1 ? "Hatch" : "Cargo"),
-            "Location": "ROCKET-SHIP-" + location
-        });
 
     }
 
@@ -200,5 +236,12 @@ class Rocket {
                 }
             }
         }
+    }
+    reset() {
+        this.rocket = [
+            [false, false, false, false],
+            [false, false, false, false],
+            [false, false, false, false],
+        ];
     }
 }
