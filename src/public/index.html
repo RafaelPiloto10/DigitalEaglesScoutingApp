@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FRC 5667 Scounting App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/index.css">
+</head>
+
+<body>
+    <div class="presets">
+        <div>
+            <div class="input-group" style="float: left; width:30%;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Scouter Name</span>
+                </div>
+                <input id="scouter-name" type="text" aria-label="Scouter-Name" class="form-control">
+            </div>
+            <div class="input-group" style="float: left; width:30%; padding-left: 10px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Team Number</span>
+                </div>
+                <input id="team-number" type="text" aria-label="Team Number" class="form-control">
+            </div>
+        </div>
+        <div style="clear: both; float: left; display: block; position: relative;"></div>
+        <div style="padding-top: 2px;">
+            <div class="input-group" style="float: left; width:15%;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Hab Start</span>
+                </div>
+                <select class="custom-select" id="inputGroupSelect02">
+                    <option selected>Level 1</option>
+                    <option value="2">Level 2</option>
+                </select>
+            </div>
+            <div class="input-group" style="float: left; width:15%;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Hab End</span>
+                </div>
+                <select class="custom-select" id="inputGroupSelect02">
+                    <option selected>Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">None</option>
+                </select>
+            </div>
+            <div style="float:left; padding-left: 10px;">
+                <button id="startB" type="button" class="btn btn-dark">Start Match</button>
+            </div>
+            <div style="float:left; padding-left: 10px;">
+                <p id="match-time" style="font-weight: bold; font-size: 2rem;">135</p>
+            </div>
+
+            <div style="float:left; padding-left: 30px; font-weight: bold;">
+                <button id="gamepieceB" type="button" class="btn btn-dark">Hatch</button>
+            </div>
+
+        </div>
+        <br>
+        <div id="canvas-holder" style="float:none;">
+
+        </div>
+
+    </div>
+
+    <!-- <img class="field" src="assets/field.png"
+        class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt=""> -->
+</body>
+<script src="field.js"></script>
+<script src="index.js"></script>
+<script src="assets/p5/p5.min.js"></script>
+<script src="assets/p5/addons/p5.dom.min.js"></script>
+<script src="sketch.js"></script>
+<script src="assets/jQuery/jquery.js">
+</script>
+<script src="assets/popperjs/popper.js">
+</script>
+<script src="assets/bootstrap-4.3.1-dist/js/bootstrap.min.js">
+</script>
+
+</html>

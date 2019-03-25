@@ -1,0 +1,15 @@
+{
+  "name": "scoutingapp",
+  "version": "1.0.0",
+  "description": "FRC scouting app made by team 5667",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RafaelPiloto10 (https://rafaelpiloto10.now.sh)",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^5.15.3",
+    "express": "^4.16.4"
+  }
+}
