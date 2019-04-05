@@ -1,0 +1,1 @@
+open -a "Google Chrome" http://localhost:3000 && node ../src/server.js 
