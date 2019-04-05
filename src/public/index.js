@@ -1,7 +1,8 @@
 let startB = document.getElementById("startB");
 let gamepieceB = document.getElementById("gamepieceB");
 let timer;
-let matchTime = 135;
+var matchTime = 150;
+var SANDSTORM_TIME = 135;
 
 var totalPoints = 0;
 
